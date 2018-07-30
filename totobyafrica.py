@@ -1,7 +1,13 @@
 import time
-import pygame
+
 import sys
 import os
+
+try import pygame
+
+
+except:
+    os.system("pip3 install pygame")
 
 hoursbefore = 0
 minutesbefore = 1
@@ -62,8 +68,10 @@ timetogo = getTime()
 print("\nProtocol will start at ", timetogo)
 def play():
     print("\nProtocol Initiated")
-    s = pygame.mixer.Sound("africa.wav")
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    s = pygame.mixer.Sound(dir_path+"/africa.wav")
     s.play()
+    
     while True:
         uin = input(">>")
         if uin == "quit":
@@ -72,7 +80,7 @@ def play():
             os.system("killall Python")
             sys.exit(1)
         else:
-            print("Type quit to kill music")
+            print("Type quit to kill program")
 while True:
     currenttime = str(time.strftime("%H:%M:%S"))
     if currenttime == timetogo:
