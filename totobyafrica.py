@@ -3,7 +3,8 @@ import time
 import sys
 import os
 
-try import pygame
+try:
+    import pygame
 
 
 except:
